@@ -1,0 +1,376 @@
+/* === 공통 설정 === */
+body {
+  margin: 0;
+  background-color: #F9FBFF;
+  color: #121212;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* === 상단 타이틀 === */
+.asset-font {
+  font-family: 'Asset', serif;
+}
+
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #F9FBFF;
+  z-index: 1000;
+  padding: 40px 0 20px 50px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.main-header h1 {
+  font-size: 65px;
+  margin: 0;
+}
+
+.main-header h2 {
+  font-size: 35px;
+  margin: 5px 0;
+}
+
+/* 컨텐츠가 헤더 밑으로 들어가지 않게 여백 확보 */
+.main-container {
+  padding-top: 250px;
+}
+
+/* === 상단 이미지 (스크롤로 제어되는 중첩형) === */
+.overlap-gallery {
+  position: relative;
+  width: 90%;
+  height: 380px;
+  overflow: hidden;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlap-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-left: 100px;
+  overflow: hidden;
+}
+
+.overlap-img {
+  position: absolute;
+  top: 0;
+  width: auto;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: all 0.6s cubic-bezier(.77,0,.18,1);
+}
+
+
+.scroll-track {
+  display: flex;
+  gap: 12px;
+  padding: 0 50px;
+}
+
+.scroll-img {
+  width: auto;
+  height: 380px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.scroll-img:hover {
+  transform: scale(1.05);
+}
+
+/* === 프로필 + 비디오 (가로 슬라이드) === */
+.profile-video-section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 60px;
+  margin: 100px 50px 0 50px;
+  flex-wrap: nowrap;
+}
+
+/* 프로필 */
+.profile-block {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.profile-circle {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  overflow: hidden; /* 이미지 넘치지 않게 */
+  margin-bottom: 20px;
+}
+
+.profile-img {
+  width: 130%;
+  height: 130%;
+  object-fit: cover;
+}
+
+
+
+.kor-name {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.eng-name {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.info {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #444;
+}
+
+.insta-link {
+  display: inline-block;
+  color: #121212;
+  font-weight: 500;
+  text-decoration: none;
+  margin-top: 4px;
+}
+.insta-link:hover {
+  text-decoration: underline;
+}
+/* ✅ 2줄 비디오 레이아웃 (프로필 옆 3개, 아래 2개) */
+.profile-video-section {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin: 100px 50px 0 50px;
+}
+
+/* 프로필 + 위쪽 3개 정렬 */
+.video-grid-top {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-left: 30px; /* ✅ 프로필 오른쪽 정렬 */
+}
+
+/* 아래쪽 2개 영상 */
+.video-grid-bottom {
+  display: flex;
+  justify-content: flex-start;
+  gap: 30px;
+}
+
+.video-box video {
+  width: 300px;
+  border-radius: 10px;
+  background-color: #000;
+}
+
+.video-desc {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #333;
+  white-space: pre-line;
+  text-align: left;
+}
+
+/* 🔹 프로필 + 상단 3개 영상을 가로 정렬 */
+.profile-top-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+/* 상단 영상 3개 */
+.video-grid-top {
+  display: flex;
+  gap: 30px;
+  flex-wrap: nowrap;
+}
+
+/* 아래쪽 2개 영상 */
+.video-grid-bottom {
+  display: flex;
+  justify-content: flex-start;
+  gap: 30px;
+  margin-left: 320px; /* 프로필 라인 기준 맞춤 */
+}
+
+/* ✅ 하단 비디오 오른쪽(두 번째)만 크기 키우기 */
+.video-grid-bottom .video-box:nth-child(2) video {
+  width: 630px;  /* 원하는 크기 */
+  height: auto;
+  transition: all 0.3s ease;
+}
+
+
+
+/* 반응형: 모바일에서는 세로로 전환 */
+@media (max-width: 900px) {
+  .profile-top-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .video-grid-top,
+  .video-grid-bottom {
+    margin-left: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .video-box video {
+    width: 260px;
+  }
+}
+
+
+/* 반응형 대응 */
+@media (max-width: 900px) {
+  .profile-video-section {
+    align-items: center;
+  }
+
+  .video-grid-top,
+  .video-grid-bottom {
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  .video-box video {
+    width: 280px;
+  }
+}
+
+/* === 하단 3컬럼 === */
+.footer-section {
+  display: flex;
+  justify-content: flex-start;
+  gap: 120px;
+  margin-left: 180px;
+  margin-top: 120px;
+  flex-wrap: wrap;
+}
+
+.footer-col {
+  width: 280px;
+  margin-bottom: 80px;
+}
+
+.footer-col h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* 팀 프로젝트 */
+.project img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.project img:hover {
+  transform: scale(1.03);
+}
+
+.project a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.project p {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* PDF 섹션 */
+.pdf-desc {
+  font-size: 13px;
+  color: #444;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.pdf-thumbs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.pdf-thumbs img {
+  width: 80px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.pdf-thumbs img:hover {
+  transform: scale(1.05);
+}
+
+/* 포트폴리오 */
+.portfolio-thumb {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-thumb:hover {
+  transform: scale(1.03);
+}
+
+.portfolio-link {
+  font-size: 13px;
+  color: #333;
+  text-decoration: none;
+}
+
+/* === 반응형 === */
+@media (max-width: 900px) {
+  .main-header h1 {
+    font-size: 52px;
+  }
+  .main-header h2 {
+    font-size: 28px;
+  }
+
+  .profile-video-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin: 80px 0 0 0;
+  }
+
+  .video-scroll-track {
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .video-box {
+    width: 280px;
+  }
+
+  .footer-section {
+    margin-left: 0;
+    justify-content: center;
+    gap: 40px;
+  }
+}
