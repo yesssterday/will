@@ -187,8 +187,8 @@ const MainPage = () => {
                   poster={`${process.env.PUBLIC_URL}/images/video${i + 1}.jpg`}
                 />
                 <p className="video-desc">
-                  {i === 0 && "비쥬얼 콘텐츠 제작 제작\nPs, Canva 활용"}
-                  {i === 1 && "비쥬얼 콘텐츠 제작 제작\nPs, Canva 활용"}
+                  {i === 0 && "비쥬얼 콘텐츠 제작 \nPs, Canva 활용"}
+                  {i === 1 && "비쥬얼 콘텐츠 제작 \nPs, Canva 활용"}
                   {i === 2 && "콘텐츠 제작\n Ps 스케치, Canva 활용"}
                 </p>
               </div>
@@ -253,8 +253,8 @@ const MainPage = () => {
         </div>
 
         <div className="footer-col">
-          <h3>WEB DESIGN .PDF</h3>
-          <p className="pdf-desc">개인 웹 기획, 디자인 작업물</p>
+          <h3>FASHION DESIGN PORTFOLIO.PDF</h3>
+          <p className="pdf-desc">패션 디자인 작업물</p>
 
           <div className="pdf-thumbs">
             {["pdf1", "pdf2", "pdf3"].map((name, i) => (
