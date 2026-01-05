@@ -1,2 +1,3 @@
 node_modules
 public/pdf/pdf3.pdf
+build/pdf/
