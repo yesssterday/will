@@ -6,6 +6,13 @@ const MainPage = () => {
   const [current, setCurrent] = useState(0); // ✅ 이미지 스크롤 단계 상태 추가
   const videoScrollRef = useRef(null);
 
+
+  const pdfLinks = {
+    pdf1: "https://drive.google.com/file/d/1mEKbgofLnwZeyZ-cUjh450bYVYPFgB-7/view?usp=drive_link",
+    pdf2: "https://drive.google.com/file/d/1lg_ohstPt4X0roK4ERxnmMcB4V3zw1Im/view?usp=drive_link",
+    pdf3: "https://drive.google.com/file/d/1UGLwTLpvUVSrH9ZzWyr_xFsmX2baMBOT/view?usp=drive_link",
+  };
+  
   // 스크롤 시 헤더 투명도 효과
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -262,12 +269,8 @@ const MainPage = () => {
                 key={i}
                 src={`${process.env.PUBLIC_URL}/images/${name}.png`}
                 alt={name}
-                onClick={() =>
-                  window.open(
-                    `${process.env.PUBLIC_URL}/pdf/${name}.pdf`,
-                    "_blank"
-                  )
-                }
+                onClick={() => window.open(pdfLinks[name], "_blank")}
+                style={{ cursor: "pointer" }}
               />
             ))}
           </div>
